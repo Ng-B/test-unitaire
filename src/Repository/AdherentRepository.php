@@ -1,0 +1,75 @@
+<?php
+
+namespace App\Repository;
+
+use App\Entity\Adherent;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+/**
+ * @method Adherent|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Adherent|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Adherent[]    findAll()
+ * @method Adherent[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class AdherentRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Adherent::class);
+    }
+
+    // /**
+    //  * @return Adherent[] Returns an array of Adherent objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('a.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Adherent
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
+
+    public function rechercherParNomExact($nom) {
+
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT p
+            FROM App\Entity\Adherent p
+            WHERE p.nom = :nom'
+        )->setParameter('nom', $nom);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
+    public function rechercherParNomWildcard($nom) {
+
+    }
+
+    public function rechercherParNomCaseInse($nom) {
+
+    }
+
+
+
+}
