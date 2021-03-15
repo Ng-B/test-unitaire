@@ -34,8 +34,6 @@ class AdherentSearchTest extends TestCase
         $adherentRepo->expects($this->any())
             ->method('findBy')
             ->willReturn();
-
-        $objectManager =
     }
 
 }

@@ -13,4 +13,3 @@ class AdherentTest extends TestCase
         $this->assertInstanceOf(Adherent::class, $adherent);
     }
 }
-
