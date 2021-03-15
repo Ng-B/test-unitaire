@@ -4,10 +4,13 @@
 namespace App\Controller;
 
 
-class DefaultController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+
+class DefaultController extends AbstractController
 {
 
-    /*public function index(){
-        return $this->render('',[]);
-    }*/
+    public function index() {
+        return $this->render('base.html.twig', []);
+    }
 }
