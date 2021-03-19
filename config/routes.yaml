@@ -3,5 +3,5 @@ index:
     controller: App\Controller\DefaultController::index
 
 login:
-    path: /login
+    path: /inscription
     controller: App\Controller\DefaultController::inscription
