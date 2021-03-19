@@ -32,7 +32,7 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     public function testLinkToInscription(){
         $client = static::createClient();
         $crawler = $client->request('GET','/');
-        $linkCrawler = $crawler->filter('.inscription');
+        $linkCrawler = $crawler->filterXPath('//a[@href="/inscription"]');
         $link = $linkCrawler->link();
         $uri = $link->getUri();
         $this->assertIsString($uri,'url est bien un string');
