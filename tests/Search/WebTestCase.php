@@ -29,4 +29,11 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     /*
      * On test que ka page anonyme existe et qu'il y a un lien vers inscription
      * */
+    public function testLinkToInscription(){
+        $client = static::createClient();
+        $crawler = $client->request('GET','/');
+        $link = $crawler->filter('a:contains("inscription")');
+        $theLink = $link[0];
+        $this->assertContains('inscription', $crawler->filter('a')->text());
+    }
 }
