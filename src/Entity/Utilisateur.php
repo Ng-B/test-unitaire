@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AdherentRepository;
+use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AdherentRepository::class)
+ * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
  */
-class Adherent
+class Utilisateur
 {
     /**
      * @ORM\Id
@@ -33,9 +33,9 @@ class Adherent
     private $date_naissance;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\OneToOne(targetEntity=Adherent::class, cascade={"persist", "remove"})
      */
-    private $cotisation;
+    private $isAdherent;
 
     public function getId(): ?int
     {
@@ -78,14 +78,14 @@ class Adherent
         return $this;
     }
 
-    public function getCotisation(): ?bool
+    public function getIsAdherent(): ?Adherent
     {
-        return $this->cotisation;
+        return $this->isAdherent;
     }
 
-    public function setCotisation(bool $cotisation): self
+    public function setIsAdherent(?Adherent $isAdherent): self
     {
-        $this->cotisation = $cotisation;
+        $this->isAdherent = $isAdherent;
 
         return $this;
     }

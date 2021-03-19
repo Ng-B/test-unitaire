@@ -18,7 +18,10 @@ class TrajetTest extends TestCase
 
     public function adhProvider() {
         return [
-            ["" , "","","",""],
+            // Test Fail ["" , "","","",""],
+            [new \DateTime('now'),]
+            new \DateTime();
+echo $time->format('H:i:s \O\n Y-m-d');
         ];
     }
 
@@ -36,8 +39,6 @@ class TrajetTest extends TestCase
         $trajet->setHeureDepart($heureDepart);
         $trajet->setLieuDepart($lieuDepart);
         $trajet->setLieuArrivee($lieuArrivee);
-
-        // dd($lieu->getCoordonnees());
         $this->assertInstanceOf(Trajet::class, $trajet);
     }
 
