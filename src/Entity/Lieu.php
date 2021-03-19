@@ -27,6 +27,7 @@ class Lieu
      */
     private $coordonnees;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,4 +56,5 @@ class Lieu
 
         return $this;
     }
+
 }
