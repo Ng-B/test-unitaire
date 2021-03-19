@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/accueil.css') }}" rel="stylesheet" />
+        {% endblock %}
+
+    {% block body %}
+        <img src="{{ asset('images/covoiturage.jpg') }}" alt="image-carpooling" class="accueil-image">
+
+        <div class="links-container">
+            <a class="bouton-ressemble" href="/login">Login</a>
+            <a class="bouton-ressemble" href="/inscription">Inscription</a>
+
+        </div>
+
+
+    {% endblock %}
+
+    {% block javascripts %}
+
+    {% endblock %}

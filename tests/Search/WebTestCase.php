@@ -39,9 +39,10 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
         $this->assertEquals('http://localhost/inscription', $uri,'On a bien un url pour la page inscription');
     }
 
-    public function testResponsetoInscriptionPage(){
+    public function testResponsetoPages(){
         $client = static::createClient();
         $client->request('GET','/inscription');
+        $client->request('GET','/login');
         $this->assertResponseIsSuccessful();
     }
 
