@@ -10,23 +10,23 @@
             <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
         {% endblock %}
 
-
-
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
     <body>
 
         <nav>
             <ul>
-                <li><a class="active" href="#home">Accueil</a></li>
+                <li><a class="active" href="/">Accueil</a></li>
                 <li><a href="#news">Trajets</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </nav>
 
         {% block body %}{% endblock %}
     </body>
+
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+
 </html>

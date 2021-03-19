@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/login.css') }}" rel="stylesheet" />
+        {% endblock %}
+
+    {% block body %}
+
+        <h2>Login Form</h2>
+
+        <form action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <img src="{{ asset('images/avatar.png') }}" width="10" height="500" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Email</b></label>
+                <input id="emailInput" type="text" placeholder="Email" name="uemail" required>
+
+                <label for="psw"><b>Mot de passe</b></label>
+                <input id="pswInput" type="password" placeholder="Mot de passe" name="upsw" required>
+
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" onclick="annuler()">Annuler</button>
+                <span class="psw">Pas de compte ?<a href="/inscription">Inscription</a></span>
+            </div>
+        </form>
+
+    {% endblock %}
+
+    {% block javascripts %}
+        <script>
+            function annuler() {
+                 document.getElementById('emailInput').value = '';
+                 document.getElementById('pswInput').value = '';
+            }
+        </script>
+    {% endblock %}

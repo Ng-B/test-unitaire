@@ -14,6 +14,10 @@ class DefaultController extends AbstractController
         return $this->render('base.html.twig', []);
     }
 
+    public function login() {
+        return $this->render('login.html.twig', []);
+    }
+
     public function inscription() {
         return $this->render('inscription.html.twig', []);
     }

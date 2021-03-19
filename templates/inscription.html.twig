@@ -8,24 +8,55 @@
 
         <h2>Login Form</h2>
 
-        <form action="/action_page.php" method="post">
-            <div class="imgcontainer">
-                <img src="{{ asset('images/avatar.png') }}" width="10" height="500" alt="Avatar" class="avatar">
-            </div>
-
+        <form action="/action_page.php" style="border:1px solid #ccc">
             <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <h1>Inscrivez-vous</h1>
+                <p>Veuillez remplir ce formulaire pour créer un compte.</p>
+                <hr>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <label for="email"><b>Email</b></label>
+                <input class="email-input" type="text" placeholder="Entrez votre e-mail" name="uemail" required>
 
-                <button type="submit">Login</button>
-            </div>
+                <label for="psw"><b>Mot de passe</b></label>
+                <input id="psw" type="password" placeholder="Entrez un mot de passe" name="upsw" required>
 
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
+                <label for="psw-repeat"><b>Répétez le mot de passe</b></label>
+                <input id="rpsw" type="password" placeholder="Répétez le mot de passe" name="psw-repeat" required
+                    onmouseleave="checkPassword()">
+
+
+                <p>En créant un compte, vous acceptez nos termes de<a href="https://fr.wikipedia.org/wiki/Anonymous_(collectif)" style="color:dodgerblue"> Conditions et confidentialité</a></p>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn" onclick="annuler()">Annuler</button>
+                    <button type="submit" class="signupbtn">S'inscrire</button>
+                </div>
             </div>
         </form>
 
+
     {% endblock %}
+
+    {% block javascripts %}
+        <script>
+            function annuler() {
+                document.getElementById('emailInput').value = '';
+                document.getElementById('pswInput').value = '';
+            }
+
+            function checkPassword() {
+                let password = document.getElementById('psw');
+                let repeatedPassword = document.getElementById('rpsw');
+
+                if(password.value && repeatedPassword.value) {
+                    if(password.value != repeatedPassword.value) {
+                        repeatedPassword.value = '';
+                        alert('Les mots de passe ne correspondent pas');
+                    }
+                }
+            }
+        </script>
+    {% endblock %}
+
+
+
