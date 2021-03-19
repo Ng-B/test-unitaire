@@ -5,3 +5,15 @@ Test urls private
 1 - Donnees- Entites
 
 2 - Contrainte fonction
+
+
+
+TestCase :
+    Services
+        Existence entites / champs (contraintes)
+KernelTestCase :
+    Repository
+        methodes Controller
+
+WebTestCase :
+        Vues (Controller)
