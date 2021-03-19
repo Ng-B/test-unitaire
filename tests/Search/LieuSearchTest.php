@@ -14,7 +14,7 @@ class LieuSearchTest extends TestCase
     public function adhProvider() {
 
         return [
-            ["GrE*nBl@2e" , "10&:1:12", "GRENOBLE_10112"]
+            ["GrE*noBl@2e" , "10&:1:12", "GRENOBLE_10112"]
         ];
     }
 

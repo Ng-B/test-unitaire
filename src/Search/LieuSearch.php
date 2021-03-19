@@ -10,15 +10,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class LieuSearch extends AbstractController
 {
     public function identifiantNormalise(Lieu $lieu) {
-        $nom =  $lieu->getName();
-        $coordonnee = $lieu->getCoordonnees();
-        preg_replace("/[^A-Za-z]/", '', [$nom,$coordonnee]);
-
-        $nom =  iconv('UTF-8','ASCII//TRANSLIT',$nom);
-        $coordonnee =  iconv('UTF-8','ASCII//TRANSLIT',$coordonnee);
-
-        $ident =  strtoupper($nom) . '_' . strtoupper($coordonnee);
-
+        setlocale(LC_ALL, "en_US.utf8");
+        $nomWithoutAccents = iconv('UTF-8', 'ASCII//TRANSLIT', $lieu->getName());
+        $prenomWithoutAccents= iconv('UTF-8', 'ASCII//TRANSLIT', $lieu->getCoordonnees());
+        $nomWithoutNonAlphanumerical = preg_replace('/[^a-z\s]/i','', $lieu->getName());
+        $coordonneeWithoutNonAlphanumerical = preg_replace('/[^a-zA-Z0-9 ]/','', $lieu->getCoordonnees());
+        $nom = $nomWithoutNonAlphanumerical;
+        $coordonnee = $coordonneeWithoutNonAlphanumerical;
+        $ident = strtoupper($nom) . '_' . strtoupper($coordonnee);
         return $ident;
     }
 }
