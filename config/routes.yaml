@@ -2,6 +2,6 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-adherents:
-    path: /adh
-    controller: App\Controller\DefaultController::adh
+login:
+    path: /login
+    controller: App\Controller\DefaultController::inscription

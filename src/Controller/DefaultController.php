@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
         return $this->render('base.html.twig', []);
     }
 
-    public function adh(){
-        return $this->render('base.html.twig', []);
+    public function inscription() {
+        return $this->render('inscription.html.twig', []);
     }
 }
