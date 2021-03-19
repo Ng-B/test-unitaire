@@ -27,7 +27,7 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     }
 
     /*
-     * On test que ka page anonyme existe et qu'il y a un lien vers inscription
+     * On test que la page anonyme existe et qu'il y a un lien vers inscription
      * */
     public function testLinkToInscription(){
         $client = static::createClient();
