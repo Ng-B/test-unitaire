@@ -20,8 +20,6 @@ class TrajetTest extends TestCase
         return [
             // Test Fail ["" , "","","",""],
             [new \DateTime('now'),]
-            new \DateTime();
-echo $time->format('H:i:s \O\n Y-m-d');
         ];
     }
 
