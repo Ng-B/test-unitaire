@@ -13,7 +13,7 @@ class LieuTest extends TestCase
     public function adhProvider() {
         return [
             ["Grenoble" , 10],
-            /*["Paris" , '10:12;28:54']*/
+            ["Paris" , '10:12;28:54']
         ];
     }
 
