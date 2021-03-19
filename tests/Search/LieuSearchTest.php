@@ -14,7 +14,7 @@ class LieuSearchTest extends TestCase
     public function adhProvider() {
 
         return [
-            ["GrE*nBl@2e" , "10&:1:12", "GRENOBLE_10112"]
+            ["GrE*noBl@2e" , "10&:1:12", "GRENOBLE_10112"]
         ];
     }
 
@@ -24,7 +24,7 @@ class LieuSearchTest extends TestCase
      * @param $coordonnee
      * @param $identifiant
      */
-    public function testAdherentIdentifiantNormalise($nom, $coordonnee, $identifiant) {
+    public function testLieuIdentifiantNormalise($nom, $coordonnee, $identifiant) {
         $search = new LieuSearch();
         $lieu = new Lieu();
         $lieu->setName($nom);
