@@ -24,7 +24,7 @@ class LieuSearchTest extends TestCase
      * @param $coordonnee
      * @param $identifiant
      */
-    public function testAdherentIdentifiantNormalise($nom, $coordonnee, $identifiant) {
+    public function testLieuIdentifiantNormalise($nom, $coordonnee, $identifiant) {
         $search = new LieuSearch();
         $lieu = new Lieu();
         $lieu->setName($nom);

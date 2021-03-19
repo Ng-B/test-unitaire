@@ -11,9 +11,9 @@ inscription:
     controller: App\Controller\DefaultController::inscription
 
 loginAction:
-    path: /login
-    controller: App\Controller\DefaultController::login
+    path: /loginSubmit
+    controller: App\Controller\ActionController::loginSubmit
 
 inscriptionAction:
-    path: /inscription
-    controller: App\Controller\DefaultController::inscription
+    path: /inscriptionSubmit
+    controller: App\Controller\ActionController::inscriptionSubmit
