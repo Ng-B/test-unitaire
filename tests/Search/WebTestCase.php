@@ -26,7 +26,6 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
         $this->assertEquals(200,$client->getResponse()->getStatusCode());
     }
 
-<<<<<<< HEAD
     /*
      * On test que ka page anonyme existe et qu'il y a un lien vers inscription
      * */
@@ -37,7 +36,5 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
         $theLink = $link[0];
         $this->assertContains('inscription', $crawler->filter('a')->text());
     }
-=======
 
->>>>>>> 9b7d3f0e33094a1c193edbf10fe4cd1bebb7b4d0
 }
