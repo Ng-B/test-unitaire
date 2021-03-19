@@ -20,11 +20,11 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     /*
     * On test que la page existe
     */
-    public function testAnonymePageExiste(){
+    /*public function testAnonymePageExiste(){
         $client = static::createClient();
         $client->request('GET','/');
         $this->assertEquals(200,$client->getResponse()->getStatusCode());
-    }
+    }*/
 
     /*
      * On test que ka page anonyme existe et qu'il y a un lien vers inscription
@@ -32,9 +32,11 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     public function testLinkToInscription(){
         $client = static::createClient();
         $crawler = $client->request('GET','/');
-        $link = $crawler->filter('a:contains("inscription")');
-        $theLink = $link[0];
-        $this->assertContains('inscription', $crawler->filter('a')->text());
+        $linkCrawler = $crawler->filter('.inscription');
+        $link = $linkCrawler->link();
+        $uri = $link->getUri();
+        $this->assertIsString($uri,'url est bien un string');
+        $this->assertEquals('http://localhost/inscription', $uri,'On a bien un url pour la page inscription');
     }
 
 }
