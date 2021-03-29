@@ -16,18 +16,23 @@ class CovoiturageTestFixture extends Fixture
         ['Lyon','67:32,85:98'],
     ];
 
-    public function load(ObjectManager $manager)
-    {
-        // $product = new Product();
-        // $manager->persist($product);
+    public function loadLieu(ObjectManager $manager){
         for($i = 0; $i < count($this->lieu); $i++){
             $l = new Lieu();
             $l->setName($this->lieu[$i][0]);
             $l->setCoordonnees($this->lieu[$i][1]);
             $manager->persist($l);
-           // $manager->flush();
+            // $manager->flush();
         }
+    }
 
+    public function load(ObjectManager $manager)
+    {
+        // $product = new Product();
+        // $manager->persist($product);
+        $this->loadLieu($manager);
         $manager->flush();
     }
+
+
 }
