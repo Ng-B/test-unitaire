@@ -4,6 +4,7 @@
 namespace App\Tests\Entity;
 
 
+use App\Entity\Lieu;
 use App\Entity\Trajet;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +20,7 @@ class TrajetTest extends TestCase
     public function adhProvider() {
         return [
             // Test Fail ["" , "","","",""],
-            [new \DateTime('now'),]
+            [new \DateTime('now'),new \DateTime('now'), new Lieu("Paris" , '10:12;28:54'),new Lieu("Grenoble" , '10:12;28:54')]
         ];
     }
 
@@ -33,6 +34,7 @@ class TrajetTest extends TestCase
     public function testNewAdherentWithConstruct($dateDepart, $heureDepart, $lieuDepart, $lieuArrivee): void
     {
         $trajet = new Trajet();
+
         $trajet->setDateDepart($dateDepart);
         $trajet->setHeureDepart($heureDepart);
         $trajet->setLieuDepart($lieuDepart);
