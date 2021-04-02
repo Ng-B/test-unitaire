@@ -39,6 +39,6 @@ jobs:
       run: bin/phpunit tests/WebTestCase
 
     - name: Run test Search
-     run: bin/phpunit tests/Search
+      run: bin/phpunit tests/Search
 
 
