@@ -4,11 +4,12 @@ namespace App\Entity;
 
 use App\Repository\AdherentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=AdherentRepository::class)
  */
-class Adherent
+class Adherent implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id
@@ -37,5 +38,61 @@ class Adherent
         $this->cotisation = $cotisation;
 
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function serialize()
+    {
+        // TODO: Implement serialize() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function unserialize($serialized)
+    {
+        // TODO: Implement unserialize() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }

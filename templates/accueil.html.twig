@@ -7,11 +7,17 @@
     {% block body %}
         <img src="{{ asset('images/covoiturage.jpg') }}" alt="image-carpooling" class="accueil-image">
 
-        <div class="links-container">
-            <a class="bouton-ressemble" href="/login">Login</a>
-            <a class="bouton-ressemble" href="/inscription">Inscription</a>
+        {% if user is defined%}
+            <div class="links-container">
+                <a class="bouton-ressemble" href="/logout">Logout</a>
+            </div>
+        {% else %}
+            <div class="links-container">
+                <a class="bouton-ressemble" href="/login">Login</a>
+                <a class="bouton-ressemble" href="/inscription">Inscription</a>
+            </div>
+        {% endif %}
 
-        </div>
 
 
     {% endblock %}
