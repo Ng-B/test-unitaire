@@ -1,4 +1,6 @@
 {
+    "name": "test-unitaire/test-unitaire",
+    "description": "description",
     "type": "project",
     "license": "proprietary",
     "require": {
