@@ -7,11 +7,11 @@
     {% block body %}
         <img src="{{ asset('images/covoiturage.jpg') }}" alt="image-carpooling" class="accueil-image">
 
-        {% if user is defined%}
+        {% if app.user is defined%}
             <div class="links-container">
                 <a class="bouton-ressemble" href="/logout">Logout</a>
 
-                {% if user.isadherent == false %}
+                {% if app.user.isadherent == false %}
                     <a class="bouton-ressemble" href=" {{ path('devenir_adherent', { 'id': user.id }) }}" onclick="alertAdh()"> Devenir adherent</a>
                 {% endif %}
 

@@ -7,8 +7,37 @@
     {% block body %}
         <img src="{{ asset('images/covoiturage.jpg') }}" alt="image-carpooling" class="accueil-image">
 
+        {% if app.user is defined%}
+            {% if app.user.isadherent == true%}
+                <div>
+                    <h4>Nouveau Trajet</h4>
+                    <form action="#">
+                        <label for="lieu depart"> Lieu Depart:</label>
+                        <select id="lieu_departs" name="lieu_departs" size="4">
+                            <option value="BARBEY">BARBEY</option>
+                            <option value="BLANDY">BLANDY</option>
+                            <option value="CHAMPDEUIL">CHAMPDEUIL</option>
+                            <option value="COURTACON">COURTACON</option>
+                        </select><br><br>
+                        <label for="lieu_arrivee"> Lieu Arrivee:</label>
+                        <select id="lieu_arrivee" name="lieu_arrivee" size="4">
+                            <option value="BARBEY">BARBEY</option>
+                            <option value="BLANDY">BLANDY</option>
+                            <option value="CHAMPDEUIL">CHAMPDEUIL</option>
+                            <option value="COURTACON">COURTACON</option>
+                        </select><br><br>
+                        <label for="heure"> Jour/Heure Depart:</label>
+                        <input type="date">
+                        <label for="nbr_passagers"> Nombre Passagers:</label>
+                        <input type="number">
+                        <input type="submit">
+                    </form>
+                </div>
+            {% endif %}
+        {% endif %}
 
-        {% if user is defined%}
+        {% if app.user is defined%}
+            <h1>4545454</h1>
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche des trajets..">
         {% endif %}
 
@@ -33,6 +62,7 @@
 
             {% endfor %}
             </table>
+
 
         {% endif %}
 
