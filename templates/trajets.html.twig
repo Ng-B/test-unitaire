@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/accueil.css') }}" rel="stylesheet" />
+        {% endblock %}
+
+    {% block body %}
+        <img src="{{ asset('images/covoiturage.jpg') }}" alt="image-carpooling" class="accueil-image">
+
+        {% if trajets is defined and trajets is not null%}
+            <table>
+                <tr>
+                    <th>Lieu depart</th>
+                    <th>Lieu arivee</th>
+                    <th>Date depart</th>
+                    <th>Heure depart</th>
+                </tr>
+            {% for trajet in trajets %}
+
+                {% if trajet.lieudepart is defined %}
+                    <tr>
+                        <td>{{trajet.lieudepart.name}}</td>
+                        <td>{{trajet.lieuarrivee.name}}</td>
+                        <td>{{trajet.datedepart|date("d/m/Y")}}</td>
+                        <td>{{trajet.heuredepart|date("h:i:s")}}</td>
+                    </tr>
+                {% endif %}
+
+            {% endfor %}
+            </table>
+
+        {% endif %}
+
+
+        {% if user is defined%}
+            <div class="links-container">
+                <a class="bouton-ressemble" href="/logout">Logout</a>
+                <a class="bouton-ressemble" href="/adherent">Devenir adherent</a>
+            </div>
+        {% endif %}
+
+
+
+    {% endblock %}
+
+    {% block javascripts %}
+
+    {% endblock %}
