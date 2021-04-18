@@ -4,17 +4,17 @@
 namespace App\Controller;
 
 
+use App\Entity\Adherent;
+use App\Entity\Trajet;
 use App\Entity\Utilisateur;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class ActionController extends AbstractController
 {
-    public function loginSubmit() {
-        dd('vide pour le moment');
-    }
 
     public function inscriptionSubmit(Request $request, UserPasswordEncoderInterface $passwordEncoder) {
 
@@ -41,7 +41,27 @@ class ActionController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
+        return $this->render('accueil.html.twig');
 
+    }
+
+    public function devenirAdherent(int $id): Response {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $utilisateur = $entityManager
+            ->getRepository(Utilisateur::class)
+            ->find($id);
+
+        $adherent = new Adherent();
+        $adherent->setCotisation(false);
+        $entityManager->persist($adherent);
+
+        $utilisateur->setIsAdherent($adherent);
+
+        $entityManager->flush();
+
+        return $this->render('accueil.html.twig');
     }
 
 }

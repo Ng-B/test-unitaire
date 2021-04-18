@@ -10,6 +10,10 @@ inscription:
     path: /inscription
     controller: App\Controller\DefaultController::inscription
 
+devenir_adherent:
+    path: /adherent/{id}
+    controller: App\Controller\ActionController::devenirAdherent
+
 trajets:
     path: /trajets
     controller: App\Controller\DefaultController::trajets

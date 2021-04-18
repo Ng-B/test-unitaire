@@ -17,6 +17,9 @@
                 <li><a  href="/">Accueil</a></li>
                 <li><a  href="/trajets">Trajets</a></li>
                 <li><a href="#contact">Contact</a></li>
+                {% if user is defined %}
+                    <li><a  href="/reservations">Reservations</a></li>
+                {% endif %}
             </ul>
         </nav>
 

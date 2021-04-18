@@ -7,9 +7,14 @@
     {% block body %}
         <img src="{{ asset('images/covoiturage.jpg') }}" alt="image-carpooling" class="accueil-image">
 
+
+        {% if user is defined%}
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche des trajets..">
+        {% endif %}
+
         {% if trajets is defined and trajets is not null%}
-            <table>
-                <tr>
+            <table id="myTable">
+                <tr class="header">
                     <th>Lieu depart</th>
                     <th>Lieu arivee</th>
                     <th>Date depart</th>
@@ -32,17 +37,34 @@
         {% endif %}
 
 
-        {% if user is defined%}
-            <div class="links-container">
-                <a class="bouton-ressemble" href="/logout">Logout</a>
-                <a class="bouton-ressemble" href="/adherent">Devenir adherent</a>
-            </div>
-        {% endif %}
+
 
 
 
     {% endblock %}
 
     {% block javascripts %}
+        <script>
+            function myFunction() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
 
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
     {% endblock %}

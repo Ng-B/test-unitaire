@@ -10,7 +10,11 @@
         {% if user is defined%}
             <div class="links-container">
                 <a class="bouton-ressemble" href="/logout">Logout</a>
-                <a class="bouton-ressemble" href="/adherent">Devenir adherent</a>
+
+                {% if user.isadherent == false %}
+                    <a class="bouton-ressemble" href=" {{ path('devenir_adherent', { 'id': user.id }) }}" onclick="alertAdh()"> Devenir adherent</a>
+                {% endif %}
+
             </div>
         {% else %}
             <div class="links-container">
@@ -21,8 +25,15 @@
 
 
 
+
+
+
     {% endblock %}
 
     {% block javascripts %}
-
+        <script>
+            function alertAdh() {
+                confirm('Etes-vous sur de vouloir devenir adherent ?')
+            }
+        </script>
     {% endblock %}
