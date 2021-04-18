@@ -11,6 +11,9 @@ class DefaultController extends AbstractController
 {
 
     public function index(Security $security) {
+
+        $communes = json_decode(file_get_contents('/home/ngB/Documents/LP-AW/Test_Unitaire/test-unitaire/public/json/france.json'));
+
         if ($security->getUser()) {
             return $this->render('accueil.html.twig', ['user' => $security->getUser()]);
         }
