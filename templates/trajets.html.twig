@@ -11,7 +11,7 @@
             {% if app.user.isadherent == true%}
                 <div>
                     <h4>Nouveau Trajet</h4>
-                    <form action="#">
+                    <form id="new_trajet" action="#">
                         <label for="lieu depart"> Lieu Depart:</label>
                         <select id="lieu_departs" name="lieu_departs" size="4">
                             <option value="BARBEY">BARBEY</option>
@@ -37,7 +37,6 @@
         {% endif %}
 
         {% if app.user is defined%}
-            <h1>4545454</h1>
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche des trajets..">
         {% endif %}
 
